@@ -2,7 +2,11 @@ package tn.bfi.bourse.informatique.ms.entity;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
+
 import tn.bfi.bourse.informatique.ms.entity.User;
 
 /**
@@ -17,10 +21,16 @@ public class Client extends User implements Serializable {
 	private String adresse;
 	private String nom;
 	private String prenom;
+	@OneToMany(mappedBy = "client")
+	private List<Portefeuille> portefeuilles = new ArrayList<Portefeuille>();
 	private static final long serialVersionUID = 1L;
 
 	public Client() {
 		super();
+	}
+
+	public void addPortefeuille(Portefeuille portefeuille) {
+		portefeuilles.add(portefeuille);
 	}
 
 	public int getCin() {
@@ -69,6 +79,14 @@ public class Client extends User implements Serializable {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public List<Portefeuille> getPortefeuilles() {
+		return portefeuilles;
+	}
+
+	public void setPortefeuilles(List<Portefeuille> portefeuilles) {
+		this.portefeuilles = portefeuilles;
 	}
 
 }

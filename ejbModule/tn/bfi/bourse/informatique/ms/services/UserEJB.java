@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import tn.bfi.bourse.informatique.ms.entity.Client;
+import tn.bfi.bourse.informatique.ms.entity.Portefeuille;
 import tn.bfi.bourse.informatique.ms.entity.User;
 import tn.bfi.bourse.informatique.ms.local.UserEJBLocal;
 import tn.bfi.bourse.informatique.ms.remote.UserEJBRemote;
@@ -45,7 +46,11 @@ public class UserEJB implements UserEJBRemote, UserEJBLocal {
 
 	@Override
 	public void registrationClient(Client client) {
+		Portefeuille portefeuille = new Portefeuille();
+		portefeuille.setClient(client);
+		client.addPortefeuille(portefeuille);
 		entityManager.persist(client);
+		entityManager.persist(portefeuille);
 	}
 
 }

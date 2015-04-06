@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import tn.bfi.bourse.informatique.ms.entity.Client;
 import tn.bfi.bourse.informatique.ms.entity.User;
 import tn.bfi.bourse.informatique.ms.local.UserEJBLocal;
 import tn.bfi.bourse.informatique.ms.remote.UserEJBRemote;
@@ -40,6 +41,11 @@ public class UserEJB implements UserEJBRemote, UserEJBLocal {
 			return null;
 		}
 
+	}
+
+	@Override
+	public void registrationClient(Client client) {
+		entityManager.persist(client);
 	}
 
 }

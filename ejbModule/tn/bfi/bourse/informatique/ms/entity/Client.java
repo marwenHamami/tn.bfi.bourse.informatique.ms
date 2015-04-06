@@ -15,6 +15,8 @@ public class Client extends User implements Serializable {
 	private String email;
 	private int tel;
 	private String adresse;
+	private String nom;
+	private String prenom;
 	private static final long serialVersionUID = 1L;
 
 	public Client() {
@@ -51,6 +53,22 @@ public class Client extends User implements Serializable {
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 }

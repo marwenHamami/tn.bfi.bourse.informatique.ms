@@ -2,6 +2,7 @@ package tn.bfi.bourse.informatique.ms.entity;
 
 import java.io.Serializable;
 import java.lang.String;
+
 import javax.persistence.*;
 
 /**
@@ -19,6 +20,10 @@ public class Portefeuille implements Serializable {
 	private double capital;
 	@ManyToOne
 	private Client client;
+	@ManyToOne
+	private Compte_espece compte_espece = new Compte_espece();
+	@ManyToOne
+	private Compte_br compte_br;
 	private static final long serialVersionUID = 1L;
 
 	public Portefeuille() {
@@ -63,6 +68,22 @@ public class Portefeuille implements Serializable {
 
 	public void setCapital(double capital) {
 		this.capital = capital;
+	}
+
+	public Compte_espece getCompte_espece() {
+		return compte_espece;
+	}
+
+	public void setCompte_espece(Compte_espece compte_espece) {
+		this.compte_espece = compte_espece;
+	}
+
+	public Compte_br getCompte_br() {
+		return compte_br;
+	}
+
+	public void setCompte_br(Compte_br compte_br) {
+		this.compte_br = compte_br;
 	}
 
 }

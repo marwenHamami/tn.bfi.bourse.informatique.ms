@@ -2,6 +2,8 @@ package tn.bfi.bourse.informatique.ms.entity;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -19,6 +21,10 @@ public class User implements Serializable {
 	private int id;
 	private String login;
 	private String password;
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.MERGE })
+	private List<Compte_espece> compte_especes = new ArrayList<Compte_espece>();
+	@OneToOne(fetch=FetchType.LAZY)
+	private Compte_br compte_br = new Compte_br();
 	private static final long serialVersionUID = 1L;
 
 	public User() {
@@ -47,6 +53,22 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<Compte_espece> getCompte_especes() {
+		return compte_especes;
+	}
+
+	public void setCompte_especes(List<Compte_espece> compte_especes) {
+		this.compte_especes = compte_especes;
+	}
+
+	public Compte_br getCompte_br() {
+		return compte_br;
+	}
+
+	public void setCompte_br(Compte_br compte_br) {
+		this.compte_br = compte_br;
 	}
 
 }

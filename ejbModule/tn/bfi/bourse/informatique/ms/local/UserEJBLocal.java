@@ -10,4 +10,6 @@ public interface UserEJBLocal {
 	public User authentification(String login, String mdp);
 
 	public void registrationClient(Client client);
+	
+	public boolean verifLogin(String login);
 }

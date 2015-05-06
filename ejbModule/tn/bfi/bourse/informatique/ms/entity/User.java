@@ -71,4 +71,9 @@ public class User implements Serializable {
 		this.compte_br = compte_br;
 	}
 
+	public void setCompte_br() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

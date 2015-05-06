@@ -34,6 +34,8 @@ public class Ordre implements Serializable {
 	private String Statut_modif;
 	@ManyToOne
 	private Compte_br compte_br;
+	@ManyToOne
+	private Valeur_marché valeur_marché;
 	private static final long serialVersionUID = 1L;
 
 	public Ordre() {
@@ -149,6 +151,12 @@ public class Ordre implements Serializable {
 	}
 	public void setCompte_br(Compte_br compte_br) {
 		this.compte_br = compte_br;
+	}
+	public Valeur_marché getValeur_marché() {
+		return valeur_marché;
+	}
+	public void setValeur_marché(Valeur_marché valeur_marché) {
+		this.valeur_marché = valeur_marché;
 	}
    
 }

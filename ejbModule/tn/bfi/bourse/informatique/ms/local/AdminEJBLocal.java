@@ -13,5 +13,11 @@ public interface AdminEJBLocal {
 	public List<Client> findUserByAdmin(Client client);
 
 	public void activeruser(User user);
+	
+	public List<Client> findAll();
+	
+	public void approuveClient(Client client);
+	
+	public void delete(Client client);
 
 }

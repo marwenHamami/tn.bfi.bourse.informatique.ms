@@ -20,6 +20,7 @@ public class Valeur_marché implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy= GenerationType.SEQUENCE)
 	private int id;
 	private Long code_interne;
 	private String lib_lon;

@@ -23,6 +23,8 @@ public class Client extends User implements Serializable {
 	private String prenom;
 	@OneToMany(mappedBy = "client")
 	private List<Portefeuille> portefeuilles = new ArrayList<Portefeuille>();
+
+	private boolean approuved;
 	private static final long serialVersionUID = 1L;
 
 	public Client() {
@@ -87,6 +89,14 @@ public class Client extends User implements Serializable {
 
 	public void setPortefeuilles(List<Portefeuille> portefeuilles) {
 		this.portefeuilles = portefeuilles;
+	}
+
+	public boolean isApprouved() {
+		return approuved;
+	}
+
+	public void setApprouved(boolean approuved) {
+		this.approuved = approuved;
 	}
 
 }

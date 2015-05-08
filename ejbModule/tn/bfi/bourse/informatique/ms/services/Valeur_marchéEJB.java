@@ -1,5 +1,7 @@
 package tn.bfi.bourse.informatique.ms.services;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -14,25 +16,27 @@ import tn.bfi.bourse.informatique.ms.remote.Valeur_marchéEJBRemote;
  */
 @Stateless
 @LocalBean
-public class Valeur_marchéEJB implements Valeur_marchéEJBRemote, Valeur_marchéEJBLocal {
+public class Valeur_marchéEJB implements Valeur_marchéEJBRemote,
+		Valeur_marchéEJBLocal {
 
 	@PersistenceContext(name = "tn.bfi.bourse.informatique.ms")
 	EntityManager entityManager;
 
-    /**
-     * Default constructor. 
-     */
-    public Valeur_marchéEJB() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public Valeur_marchéEJB() {
+		// TODO Auto-generated constructor stub
+	}
 
-    public EntityManager getEntityManager() {
+	public EntityManager getEntityManager() {
 		return entityManager;
 	}
+
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
-    
+
 	@Override
 	public Valeur_marché findById(int id) {
 		try {
@@ -41,14 +45,19 @@ public class Valeur_marchéEJB implements Valeur_marchéEJBRemote, Valeur_marchéEJ
 			e.printStackTrace();
 			return null;
 		}
-		
+
 	}
-    
+
 	@Override
 	public void add(Valeur_marché valeur_marché) {
 		entityManager.persist(valeur_marché);
-		
+
 	}
 
+	@Override
+	public List<Valeur_marché> findAll() {
+		return entityManager.createQuery("SELECT v FROM Valeur_marché v",
+				Valeur_marché.class).getResultList();
+	}
 
 }

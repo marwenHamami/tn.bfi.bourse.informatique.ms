@@ -22,7 +22,6 @@ public class Valeur_marché implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.SEQUENCE)
 	private int id;
-	private Long code_interne;
 	private String lib_lon;
 	private Double cours_ref;
 	private Double dernier_cours;
@@ -31,8 +30,12 @@ public class Valeur_marché implements Serializable {
 	private Date date_dernier_cours;
 	private Double variation;
 	private String types;
+	private Double haut;
+	private Double bas;
 	@OneToMany(mappedBy = "valeur_marché", cascade = { CascadeType.MERGE })
 	private List<Ordre> ordres = new ArrayList<Ordre>();
+	@ManyToOne
+	private Liste liste;
 	private static final long serialVersionUID = 1L;
 
 	public Valeur_marché() {
@@ -45,13 +48,7 @@ public class Valeur_marché implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}   
-	public Long getCode_interne() {
-		return this.code_interne;
-	}
-
-	public void setCode_interne(Long code_interne) {
-		this.code_interne = code_interne;
-	}   
+	
 	public String getLib_lon() {
 		return this.lib_lon;
 	}
@@ -108,6 +105,24 @@ public class Valeur_marché implements Serializable {
 	}
 	public void setVariation(Double variation) {
 		this.variation = variation;
+	}
+	public Double getHaut() {
+		return haut;
+	}
+	public void setHaut(Double haut) {
+		this.haut = haut;
+	}
+	public Double getBas() {
+		return bas;
+	}
+	public void setBas(Double bas) {
+		this.bas = bas;
+	}
+	public Liste getListe() {
+		return liste;
+	}
+	public void setListe(Liste liste) {
+		this.liste = liste;
 	}
 	
    

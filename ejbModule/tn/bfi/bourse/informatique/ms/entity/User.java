@@ -22,6 +22,8 @@ public class User implements Serializable {
 	private String login;
 	private String password;
 	@OneToMany(mappedBy = "user", cascade = { CascadeType.MERGE })
+	private List<Liste> listes = new ArrayList<Liste>();
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.MERGE })
 	private List<Compte_espece> compte_especes = new ArrayList<Compte_espece>();
 	@OneToOne(fetch=FetchType.LAZY)
 	private Compte_br compte_br = new Compte_br();
@@ -75,5 +77,14 @@ public class User implements Serializable {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public List<Liste> getListes() {
+		return listes;
+	}
+
+	public void setListes(List<Liste> listes) {
+		this.listes = listes;
+	}
+	
 
 }

@@ -74,4 +74,14 @@ public class ListeEJB implements ListeEJBRemote, ListeEJBLocal {
 		entityManager.remove(entityManager.merge(valeur_marché));
 	}
 
+	@Override
+	public Liste findById(int id) {
+		return entityManager.find(Liste.class, id);
+	}
+
+	@Override
+	public void update(Liste liste) {
+		entityManager.merge(liste);
+	}
+
 }

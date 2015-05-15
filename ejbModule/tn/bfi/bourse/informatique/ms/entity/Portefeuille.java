@@ -2,6 +2,8 @@ package tn.bfi.bourse.informatique.ms.entity;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -24,6 +26,8 @@ public class Portefeuille implements Serializable {
 	private Compte_espece compte_espece = new Compte_espece();
 	@ManyToOne
 	private Compte_br compte_br;
+	@OneToMany(mappedBy = "portfeuille", cascade = { CascadeType.MERGE })
+	private List<Hmvt> Hmvt = new ArrayList<Hmvt>();
 	private static final long serialVersionUID = 1L;
 
 	public Portefeuille() {
@@ -84,6 +88,14 @@ public class Portefeuille implements Serializable {
 
 	public void setCompte_br(Compte_br compte_br) {
 		this.compte_br = compte_br;
+	}
+
+	public List<Hmvt> getHmvt() {
+		return Hmvt;
+	}
+
+	public void setHmvt(List<Hmvt> hmvt) {
+		Hmvt = hmvt;
 	}
 
 }

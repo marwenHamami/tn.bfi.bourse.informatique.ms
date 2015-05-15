@@ -3,7 +3,9 @@ package tn.bfi.bourse.informatique.ms.entity;
 import java.io.Serializable;
 import java.lang.Double;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -17,6 +19,7 @@ public class Ordre implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy= GenerationType.SEQUENCE)
 	private int id;
 	private int qt_initial;
 	private int qt_absolu;
@@ -32,10 +35,15 @@ public class Ordre implements Serializable {
 	private Date date_saisis;
 	private Date date_validité;
 	private String Statut_modif;
+	private String types;
 	@ManyToOne
 	private Compte_br compte_br;
 	@ManyToOne
 	private Valeur_marché valeur_marché;
+	@ManyToOne
+	private Demande demande;
+	@OneToMany(mappedBy = "ordre")
+	private List<Execution> executions = new ArrayList<Execution>();
 	private static final long serialVersionUID = 1L;
 
 	public Ordre() {
@@ -158,5 +166,24 @@ public class Ordre implements Serializable {
 	public void setValeur_marché(Valeur_marché valeur_marché) {
 		this.valeur_marché = valeur_marché;
 	}
+	public Demande getDemande() {
+		return demande;
+	}
+	public void setDemande(Demande demande) {
+		this.demande = demande;
+	}
+	public List<Execution> getExecutions() {
+		return executions;
+	}
+	public void setExecutions(List<Execution> executions) {
+		this.executions = executions;
+	}
+	public String getTypes() {
+		return types;
+	}
+	public void setTypes(String types) {
+		this.types = types;
+	}
+	
    
 }

@@ -30,6 +30,8 @@ public class Compte_br implements Serializable {
 	private List<Portefeuille> portefeuilles = new ArrayList<Portefeuille>();
 	@OneToOne(fetch=FetchType.LAZY,mappedBy="compte_br")
 	private User user;
+	@OneToMany(mappedBy="compte_br")
+	private List<Ordre> ordres = new ArrayList<Ordre>();
 	private static final long serialVersionUID = 1L;
 
 	public Compte_br() {
@@ -84,4 +86,12 @@ public class Compte_br implements Serializable {
 		this.active = active;
 	}
 
+	public List<Ordre> getOrdres() {
+		return ordres;
+	}
+
+	public void setOrdres(List<Ordre> ordres) {
+		this.ordres = ordres;
+	}
+	
 }

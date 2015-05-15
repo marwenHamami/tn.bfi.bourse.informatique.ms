@@ -44,4 +44,10 @@ public class PortefeuilleEJB implements PortefeuilleEJBRemote,
 		entityManager.persist(portefeuille);
 	}
 
+	@Override
+	public Portefeuille findById(int id) {
+		// TODO Auto-generated method stub
+		return entityManager.find(Portefeuille.class, id);
+	}
+
 }

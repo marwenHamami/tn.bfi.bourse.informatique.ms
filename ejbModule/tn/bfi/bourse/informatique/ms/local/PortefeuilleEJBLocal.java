@@ -12,6 +12,7 @@ public interface PortefeuilleEJBLocal {
 	public List<Portefeuille> findProtefeuilleByClient(Client client);
 
 	public void add(Portefeuille portefeuille);
+	public void delete(Portefeuille portefeuille);
 	
 	public Portefeuille findById(int id);
 }

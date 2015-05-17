@@ -50,4 +50,10 @@ public class PortefeuilleEJB implements PortefeuilleEJBRemote,
 		return entityManager.find(Portefeuille.class, id);
 	}
 
+	@Override
+	public void delete(Portefeuille portefeuille) {
+		entityManager.remove(entityManager.merge(portefeuille));
+		
+	}
+
 }

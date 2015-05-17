@@ -1,6 +1,5 @@
 package tn.bfi.bourse.informatique.ms.local;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Local;

@@ -16,4 +16,8 @@ public interface Compte_especeLocal {
 	public void delete(Compte_espece compte_espece);
 
 	public List<Compte_espece> findByClient(Client client);
+
+	public Compte_espece findByRib(Long rib);
+
+	public Compte_espece findByClients(Client client);
 }

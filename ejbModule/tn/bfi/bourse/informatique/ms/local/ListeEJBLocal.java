@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import tn.bfi.bourse.informatique.ms.entity.Client;
 import tn.bfi.bourse.informatique.ms.entity.Liste;
 import tn.bfi.bourse.informatique.ms.entity.Valeur_marché;
 
@@ -25,4 +26,6 @@ public interface ListeEJBLocal {
 	public Liste findById(int id);
 	
 	public void update(Liste liste);
+	
+	public List<Liste> findByClient(Client client);
 }

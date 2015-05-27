@@ -7,7 +7,7 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
+import javax.persistence.Query;
 
 import tn.bfi.bourse.informatique.ms.entity.Client;
 import tn.bfi.bourse.informatique.ms.entity.Compte_espece;
@@ -54,6 +54,32 @@ public class Compte_especeEJB implements Compte_especeRemote,
 						"SELECT ce FROM Compte_espece ce WHERE ce.user=:user",
 						Compte_espece.class).setParameter("user", client)
 				.getResultList();
+	}
+
+	@Override
+	public Compte_espece findByRib(Long rib) {
+		Query query = entityManager.createQuery(
+				"SELECT c FROM Compte_espece c WHERE c.RIB=:rib",
+				Compte_espece.class).setParameter("rib", rib);
+		try {
+			return (Compte_espece) query.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+
+	}
+
+	@Override
+	public Compte_espece findByClients(Client client) {
+		Query query = entityManager.createQuery(
+				"SELECT c FROM Compte_espece c WHERE c.user=:user",
+				Compte_espece.class).setParameter("user", client);
+		try {
+			return (Compte_espece) query.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 
 }

@@ -11,7 +11,6 @@ import tn.bfi.bourse.informatique.ms.entity.Client;
 import tn.bfi.bourse.informatique.ms.entity.Compte_br;
 import tn.bfi.bourse.informatique.ms.entity.User;
 import tn.bfi.bourse.informatique.ms.local.Compte_brEJBLocal;
-import tn.bfi.bourse.informatique.ms.local.Compte_especeLocal;
 import tn.bfi.bourse.informatique.ms.local.UserEJBLocal;
 import tn.bfi.bourse.informatique.ms.remote.UserEJBRemote;
 

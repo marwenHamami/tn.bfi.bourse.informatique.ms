@@ -11,6 +11,8 @@ import tn.bfi.bourse.informatique.ms.entity.ListeValeurMarche;
 public interface ListeValeurMarcheEJBLocal {
 	public void add(ListeValeurMarche listeValeurMarche);
 	
+	public void delete(ListeValeurMarche listeValeurMarche);
+	
 	public List<ListeValeurMarche> findListByListe(Liste liste);
 
 }

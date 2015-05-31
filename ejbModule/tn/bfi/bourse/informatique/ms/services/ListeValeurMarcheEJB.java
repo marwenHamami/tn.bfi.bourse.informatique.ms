@@ -44,4 +44,10 @@ public class ListeValeurMarcheEJB implements ListeValeurMarcheEJBRemote,
 				.getResultList();
 	}
 
+	@Override
+	public void delete(ListeValeurMarche listeValeurMarche) {
+		entityManager.remove(entityManager.merge(listeValeurMarche));
+		
+	}
+
 }
